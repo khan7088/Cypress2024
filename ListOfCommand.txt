@@ -8,3 +8,6 @@ git status
 git commit -m "This is Message 1"
 git push origin main
 npm install cypress --save-dev -> For Installing Cypress
+MochaAwesome Reporter
+
+npm i --save-dev cypress-mochawesome-reporter -> To install MochaAwesome Reporter
