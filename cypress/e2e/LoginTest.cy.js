@@ -12,7 +12,7 @@ describe("Prividing wrong credential",()=>{
             cy.get('#username').click().type('test1') ;
             cy.get('#password').click().type('test1#987');
             cy.xpath("//button[@type='submit']").click();
-            cy.get('#flash').should("contain","Your username is invalid!") ;
+            cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
     })
 })
 
@@ -22,7 +22,7 @@ describe("Prividing wrong username",()=>{
             cy.get('#username').click().type('test1') ;
             cy.get('#password').click().type('SuperSecretPassword!');
             cy.xpath("//button[@type='submit']").click();   
-            cy.get('#flash').should("contain","Your username is invalid!") ;
+            cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
 
              
     })
@@ -34,7 +34,7 @@ describe("Prividing wrong password",()=>{
             cy.get('#username').click().type('practice') ;
             cy.get('#password').click().type('SuperSecret');
             cy.xpath("//button[@type='submit']").click();
-            cy.get('#flash').should("contain","Your password is invalid!") ;
+            cy.get('#flash').should("contain","Your password is invalid!") ; // Assertion
     
     })
 })
@@ -45,6 +45,6 @@ describe("Prividing correct username & Password",()=>{
             cy.get('#username').click().type('practice') ;
             cy.get('#password').click().type('SuperSecretPassword!');
             cy.xpath("//button[@type='submit']").click();   
-            cy.get('#flash').should("contain","You logged into a secure area!") ; 
+            cy.get('#flash').should("contain","You logged into a secure area!") ; // Assertion
     })
 })
