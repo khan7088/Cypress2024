@@ -1,0 +1,10 @@
+npx cypress run --browser chrome --headed --spec "cypress\e2e\LoginTest.cy.js"  : For Viewing
+npx cypress run --browser edge --spec "cypress\e2e\LoginTest.cy.js" : For Headless module
+npx cypress open
+npm install -D @cypress/xpath  -> For Xpath plugin
+git status
+git add .
+git status
+git commit -m "This is Message 1"
+git push origin main
+npm install cypress --save-dev -> For Installing Cypress
