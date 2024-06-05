@@ -2,6 +2,7 @@ npx cypress run --browser chrome --headed --spec "cypress\e2e\LoginTest.cy.js"  
 npx cypress run --browser edge --spec "cypress\e2e\LoginTest.cy.js" : For Headless module
 npx cypress open
 npm install -D @cypress/xpath  -> For Xpath plugin
+require('@cypress/xpath'); write in e2e.js file under support
 git status
 git add .
 git status
@@ -11,3 +12,19 @@ npm install cypress --save-dev -> For Installing Cypress
 MochaAwesome Reporter
 
 npm i --save-dev cypress-mochawesome-reporter -> To install MochaAwesome Reporter
+under support e2e.js filr write in the end :
+import 'cypress-mochawesome-reporter/register';
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter', //for html reports ** This line we have to include **
+
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+      screenshotOnRunFailure = true ;
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
+    experimentalStudio: true ,
+  },
+});
