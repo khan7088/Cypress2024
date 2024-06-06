@@ -7,37 +7,46 @@ describe('Visit to the Landing page',function(){
   })
   it('wrong username & Password',()=>{
   
-   const userName = cy.get('#username').click().type('test1') ;
-   const Password =  cy.get('#password').click().type('test1#987');
-   userName.clear();
-   Password.clear();
-    cy.xpath("//button[@type='submit']").click();
+  // cy.get('#username').click().type('test1') ;
+  // cy.get('#password').click().type('test1#987');
+  cy.get('input[name = "username"]').type('test1');
+  cy.get('input[type="password"]').type('test1#987');
+    cy.get("button[type='submit']").click();
     cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
 })
 it('wrong username and correct Password',()=>{
   
-    cy.get('#username').click().type('test1') ;
-    cy.get('#password').click().type('SuperSecretPassword!');
-    cy.xpath("//button[@type='submit']").click();   
+   // cy.get('#username').click().type('test1') ;
+   // cy.get('#password').click().type('SuperSecretPassword!');
+  cy.get("input[name = 'username']").type('test1');
+  cy.get("input[type = 'password']").type('SuperSecretPassword');
+    // cy.xpath("//button[@type='submit']").click();   
+    cy.get("button[type='submit']").click();
     cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
 
      
 })
 it('correct username and wrong Password',()=>{
  
-   cy.get('#username').click().type('practice') ;
-    cy.get('#password').click().type('SuperSecret');
-   
-    cy.xpath("//button[@type='submit']").click();
+  //  cy.get('#username').click().type('practice') ;
+  //   cy.get('#password').click().type('SuperSecret');
+  //  cy.xpath("//button[@type='submit']").click();
+  cy.get("input[name = 'username']").type('practice');
+  cy.get("input[type = 'password']").type('SuperSecret');
+  cy.get("button[type='submit']").click();
     cy.get('#flash').should("contain","Your password is invalid!") ; // Assertion
 
 })
 it('correct username and  Password',()=>{
  
-   cy.get('#username').click().type('practice') ;
-   cy.get('#password').click().type('SuperSecretPassword!');
-    
-    cy.xpath("//button[@type='submit']").click();   
+  //  cy.get('#username').click().type('practice') ;
+  //  cy.get('#password').click().type('SuperSecretPassword!');
+  //   cy.xpath("//button[@type='submit']").click();   
+
+  cy.get("input[name = 'username']").type('practice') ;
+  cy.get("input[type = 'password']").type('SuperSecretPassword!');
+  cy.get("button[type='submit']").click();
+
     cy.get('#flash').should("contain","You logged into a secure area!") ; // Assertion
 })
 
