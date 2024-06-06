@@ -9,8 +9,8 @@ describe('Visit to the Landing page',function(){
   
   // cy.get('#username').click().type('test1') ;
   // cy.get('#password').click().type('test1#987');
-  cy.get('input[name = "username"]').type('test1');
-  cy.get('input[type="password"]').type('test1#987');
+  cy.get('input[name = "username"]').clear().type('test1');
+  cy.get('input[type="password"]').clear().type('test1#987');
     cy.get("button[type='submit']").click();
     cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
 })
@@ -18,8 +18,8 @@ it('wrong username and correct Password',()=>{
   
    // cy.get('#username').click().type('test1') ;
    // cy.get('#password').click().type('SuperSecretPassword!');
-  cy.get("input[name = 'username']").type('test1');
-  cy.get("input[type = 'password']").type('SuperSecretPassword');
+  cy.get("input[name = 'username']").clear().type('test1');
+  cy.get("input[type = 'password']").clear().type('SuperSecretPassword');
     // cy.xpath("//button[@type='submit']").click();   
     cy.get("button[type='submit']").click();
     cy.get('#flash').should("contain","Your username is invalid!") ; // Assertion
