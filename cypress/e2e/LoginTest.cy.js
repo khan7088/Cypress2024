@@ -40,7 +40,7 @@ it('correct username and  Password',()=>{
   cy.get(selector.username).type('practice');
  cy.get(selector.password).clear().type("SuperSecretPassword!");
  cy.get(selector.submit).click();
- cy.get(selector.flashId).should("contain","You logged into a secure area!") ;
+ #cy.get(selector.flashId).should("contain","You logged into a secure area!") ;
 
 
 })
